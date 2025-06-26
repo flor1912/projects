@@ -1,0 +1,69 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+package eventservice;
+option java_multiple_files = true;
+option java_package  = "at.tugraz.oop2";
+option java_outer_classname ="EventServiceProto";
+option java_generic_services = true;
+
+
+message AmenitiesRequest{
+  optional string amenity = 1;
+  double bbox_tl_x = 2;
+  double bbox_tl_y = 3;
+  double bbox_br_x = 4;
+  double bbox_br_y = 5;
+  double point_x = 6;
+  double point_y = 7;
+  double point_d = 8;
+  optional int32 take = 9;
+  optional int32 page = 10;
+}
+
+message RoadRequest{
+  optional string road = 1;
+  double bbox_tl_x = 2;
+  double bbox_tl_y = 3;
+  double bbox_br_x = 4;
+  double bbox_br_y = 5;
+  optional int32 take = 9;
+  optional int32 page = 10;
+}
+
+message Landuse {
+  string type = 1;
+  double share = 2;
+  double area = 3;
+}
+
+message LanduseResponse{
+  double area = 1;
+  repeated Landuse usages = 2;
+}
+
+message LanduseRequest{
+  double bbox_tl_x = 1;
+  double bbox_tl_y = 2;
+  double bbox_br_x = 3;
+  double bbox_br_y = 4;
+}
+
+message EventById {
+  int64 id = 1;
+}
+
+message Event{
+  string event = 1;
+}
+
+message Events{
+  repeated Event events = 1;
+}
+
+service EventService{
+  rpc eventById (EventById) returns (Event){};
+  rpc getAmenities (AmenitiesRequest) returns (Events){};
+  rpc getRoads (RoadRequest) returns (Events){};
+  rpc getLanduse (LanduseRequest) returns (LanduseResponse) {}
+  rpc eventCreation (Event) returns (Event){};
+}
