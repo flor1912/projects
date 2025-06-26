@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">FoodSwiper</string>
+    <string name="distance_string">Distance</string>
+    <string name="preferences_string">Preferences</string>
+    <string name="basics_string">Basics</string>
+    <string name="location_string">Location</string>
+    <string name="graz_string">Graz</string>
+    <string name="find_location_string">Find the location</string>
+    <string name="lifestyle_string">Lifestyle</string>
+    <string name="eating_habits_string">Eating habits</string>
+    <string name="keywords_string">Keywords</string>
+    <string name="logo_string">Logo</string>
+    <string name="title_activity_favorites">FavoritesActivity</string>
+    <string name="title_activity_discover">DiscoverActivity</string>
+
+</resources>
